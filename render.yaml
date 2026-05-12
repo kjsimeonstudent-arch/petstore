@@ -2,7 +2,6 @@ services:
   # PostgreSQL Database
   - type: pserv
     name: petstore-db
-    env: postgres
     plan: starter
     # Database will be created with default settings
     # Connection details provided via environment variables
@@ -19,7 +18,7 @@ services:
         fromService:
           type: pserv
           name: petstore-db
-          property: connectionString
+          property: databaseURL
       - key: SPRING_PROFILES_ACTIVE
         value: prod
       - key: SERVER_PORT
@@ -42,7 +41,7 @@ services:
         fromService:
           type: web
           name: petstore-backend
-          property: host
+          property: renderURL
     routes:
       - type: rewrite
         source: /api/(.*)
