@@ -5,27 +5,23 @@ services:
     env: docker
     dockerfilePath: ./backend/Dockerfile
     dockerContext: ./backend
+
     envVars:
+      # External Database Credentials
       - key: DB_HOST
-        fromDatabase:
-          name: petstore-db
-          property: host
+        value: YOUR_DB_HOST
+
       - key: DB_PORT
-        fromDatabase:
-          name: petstore-db
-          property: port
+        value: YOUR_DB_PORT
+
       - key: DB_NAME
-        fromDatabase:
-          name: petstore-db
-          property: database
+        value: YOUR_DB_NAME
+
       - key: DATABASE_USERNAME
-        fromDatabase:
-          name: petstore-db
-          property: user
+        value: YOUR_DB_USERNAME
+
       - key: DATABASE_PASSWORD
-        fromDatabase:
-          name: petstore-db
-          property: password
+        value: YOUR_DB_PASSWORD
 
       # Frontend URL
       - key: CORS_ALLOWED_ORIGINS
@@ -41,7 +37,9 @@ services:
   - type: web
     name: petstore-frontend
     env: static
+
     buildCommand: cd frontend && npm install && npm run build
+
     staticPublishPath: frontend/dist
 
     routes:
@@ -53,8 +51,3 @@ services:
       # Backend API URL
       - key: VITE_API_BASE_URL
         value: https://YOUR-BACKEND-URL.onrender.com
-
-databases:
-  - name: petstore-db
-    plan: free
-    databaseName: petstore
