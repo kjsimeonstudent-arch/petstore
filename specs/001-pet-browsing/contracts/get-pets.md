@@ -1,4 +1,4 @@
-# API Contract: GET /api/v1/pets
+# API Contract: GET /api/simeon/pets
 
 **Purpose**: Retrieve paginated list of pets with optional category filtering and exact-name search
 

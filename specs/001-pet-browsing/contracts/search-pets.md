@@ -1,8 +1,8 @@
-# API Contract: GET /api/v1/pets (Search Endpoint)
+# API Contract: GET /api/simeon/pets (Search Endpoint)
 
 **Purpose**: Search for pets by exact name match
 
-**Specification**: This is an alias/specialization of the main GET /api/v1/pets endpoint, documented separately for clarity on search-specific behavior.
+**Specification**: This is an alias/specialization of the main GET /api/simeon/pets endpoint, documented separately for clarity on search-specific behavior.
 
 ---
 
@@ -90,7 +90,7 @@ Accept: application/json
 
 ### Response Fields
 
-Same as [GET /api/v1/pets](get-pets.md#success-response-200) contract.
+Same as [GET /api/simeon/pets](get-pets.md#success-response-200) contract.
 
 ---
 
@@ -128,14 +128,14 @@ Same as [GET /api/v1/pets](get-pets.md#success-response-200) contract.
 
 **Category + Search**:
 ```
-GET /api/v1/pets?search=fluffy&category=cats
+GET /api/simeon/pets?search=fluffy&category=cats
 ```
 - Returns cats named exactly "Fluffy" (typically 0-1 result)
 - Both filters must match
 
 **Pagination + Search**:
 ```
-GET /api/v1/pets?search=fluffy&page=0&size=10
+GET /api/simeon/pets?search=fluffy&page=0&size=10
 ```
 - If multiple pets named "Fluffy" exist, pagination works normally
 - Total count reflects exact-match results only
@@ -188,7 +188,7 @@ GET /api/v1/pets?search=fluffy&page=0&size=10
 1. User types pet name in search input
 2. User presses Enter or clicks Search button
 3. Frontend updates URL: `?search=query&page=0` (reset to page 0)
-4. Frontend fetches: `GET /api/v1/pets?search=query`
+4. Frontend fetches: `GET /api/simeon/pets?search=query`
 5. Display results or "No pets found" message
 
 **Result Display**:
@@ -206,7 +206,7 @@ Please check the spelling or try a different search.
 ```
 
 **Clear Search**:
-- Clear input button resets to `GET /api/v1/pets` (no search)
+- Clear input button resets to `GET /api/simeon/pets` (no search)
 - Full catalog is restored
 
 ---

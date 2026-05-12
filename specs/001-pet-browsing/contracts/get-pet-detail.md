@@ -1,4 +1,4 @@
-# API Contract: GET /api/v1/pets/:id
+# API Contract: GET /api/simeon/pets/{id}
 
 **Purpose**: Retrieve complete details for a single pet product
 
@@ -248,12 +248,12 @@ Response: 400 with "Invalid UUID format"
 ## Testing Scenarios
 
 **Acceptance Test Cases**:
-1. ✅ GET /api/v1/pets/:id returns full pet details
+1. ✅ GET /api/simeon/pets/{id} returns full pet details
 2. ✅ Response includes all images in correct order (sortOrder)
 3. ✅ Characteristics are present and valid for pet category
 4. ✅ Price, availability, and stock quantity are accurate
-5. ✅ GET /api/v1/pets/:id with invalid UUID returns 400
-3. ✅ GET /api/simeon/pets/:id with nonexistent ID returns 404
+5. ✅ GET /api/simeon/pets/{id} with invalid UUID returns 400
+3. ✅ GET /api/simeon/pets/{id} with nonexistent ID returns 404
 7. ✅ Out-of-stock pets return OUT_OF_STOCK status
 8. ✅ Image gallery is sorted correctly by sortOrder
 9. ✅ DetailedDescription is fully populated

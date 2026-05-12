@@ -9,7 +9,7 @@
 
 - **Tech Stack**: Java Spring Boot, React 18 + TypeScript, PostgreSQL, Docker, Render
 - **Architecture**: Web application (fullstack) with separate backend and frontend
-- **API**: RESTful with versioning (/api/v1/pets, /api/v1/categories)
+- **API**: RESTful with versioning (/api/simeon/pets, /api/simeon/categories)
 - **UI Components**: Material-UI + Tailwind CSS with React Context for state
 - **Database**: PostgreSQL with Flyway migrations
 - **Testing**: TDD mandatory; JUnit 5 + Mockito (backend), Jest + React Testing Library (frontend)

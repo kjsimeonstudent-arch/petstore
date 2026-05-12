@@ -58,7 +58,7 @@ Enable users to browse available pets in the PetStore ecommerce application thro
 
 | Principle | Requirement | Status | Evidence |
 |-----------|-------------|--------|----------|
-| **I. API-First** | RESTful endpoints before frontend integration | ✅ PASS | Phase 1 contracts define `/api/v1/pets`, `/api/v1/categories` endpoints |
+| **I. API-First** | RESTful endpoints before frontend integration | ✅ PASS | Phase 1 contracts define `/api/simeon/pets`, `/api/simeon/categories` endpoints |
 | **II. Database-Driven** | PostgreSQL as single source of truth | ✅ PASS | Data model includes Pet, Category, Image entities; migrations tracked |
 | **III. Containerized** | Docker containers for services | ✅ PASS | Backend, frontend, PostgreSQL all containerized; Docker Compose for dev |
 | **IV. Component-Based UI** | React functional components + Tailwind + MUI | ✅ PASS | Architecture includes PetCatalog, PetCard, PetDetail, FilterPanel components |
@@ -178,7 +178,7 @@ Dockerfile (frontend)       # Frontend container image
 - Error handling and response formats?
 
 **Findings**:
-- Use `/api/v1/pets` for versioning consistency
+- Use `/api/simeon/pets` for versioning consistency
 - Pagination: `?page=0&size=10` (zero-indexed pages, defaults to size 10)
 - Filtering: `?category=cats` (single category per spec)
 - Search: `?search=fluffy` (exact name match per clarification)

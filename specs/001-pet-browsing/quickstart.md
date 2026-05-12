@@ -364,7 +364,7 @@ npm install
 npm start
 
 # Check API connectivity (open browser console)
-# Try fetching: http://localhost:8080/api/v1/categories
+# Try fetching: http://localhost:8080/api/simeon/categories
 ```
 
 ### Database connection refused
@@ -469,7 +469,7 @@ npm run format
 
 - [ ] All Docker containers are running (`docker-compose ps`)
 - [ ] Frontend loads at http://localhost:3000
-- [ ] Backend API responds at http://localhost:8080/api/v1/pets
+- [ ] Backend API responds at http://localhost:8080/api/simeon/pets
 - [ ] Database is accessible (via database client or CLI)
 - [ ] Swagger UI shows API documentation
 - [ ] At least one pet is displayed in the catalog
@@ -491,7 +491,7 @@ docker-compose exec postgres pg_isready
 curl http://localhost:3000
 
 # API endpoint
-curl http://localhost:8080/api/v1/categories | jq
+curl http://localhost:8080/api/simeon/categories | jq
 ```
 
 ---

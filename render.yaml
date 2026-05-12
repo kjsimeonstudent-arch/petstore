@@ -1,0 +1,49 @@
+services:
+  # PostgreSQL Database
+  - type: pserv
+    name: petstore-db
+    env: postgres
+    plan: starter
+    # Database will be created with default settings
+    # Connection details provided via environment variables
+
+  # Backend API Service
+  - type: web
+    name: petstore-backend
+    env: docker
+    plan: starter
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: .
+    envVars:
+      - key: DATABASE_URL
+        fromService:
+          type: pserv
+          name: petstore-db
+          property: connectionString
+      - key: SPRING_PROFILES_ACTIVE
+        value: prod
+      - key: SERVER_PORT
+        value: 8080
+    healthCheckPath: /actuator/health
+    disk:
+      name: backend-storage
+      mountPath: /app/logs
+      sizeGB: 1
+
+  # Frontend Web App
+  - type: web
+    name: petstore-frontend
+    env: static
+    plan: starter
+    buildCommand: cd frontend && npm install && npm run build
+    staticPublishPath: ./frontend/dist
+    envVars:
+      - key: VITE_API_BASE_URL
+        fromService:
+          type: web
+          name: petstore-backend
+          property: host
+    routes:
+      - type: rewrite
+        source: /api/(.*)
+        destination: /api/$1

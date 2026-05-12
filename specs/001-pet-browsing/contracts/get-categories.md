@@ -1,4 +1,4 @@
-# API Contract: GET /api/v1/categories
+# API Contract: GET /api/simeon/categories
 
 **Purpose**: Retrieve list of all available pet categories
 
@@ -137,7 +137,7 @@ Response: List of all 4 categories
 ## Testing Scenarios
 
 **Acceptance Test Cases**:
-1. ✅ GET /api/v1/categories returns all 4 categories
+1. ✅ GET /api/simeon/categories returns all 4 categories
 2. ✅ Each category has id, name, slug, description
 3. ✅ Category names are: Cats, Dogs, Fish, Birds
 4. ✅ Slugs are lowercase: cats, dogs, fish, birds
