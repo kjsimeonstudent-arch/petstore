@@ -2,7 +2,6 @@ services:
   # ── Backend (Docker) ─────────────────────────────────────────────────────────
   - type: web
     name: petstore-backend
-    env: docker
     dockerfilePath: ./backend/Dockerfile
     dockerContext: ./backend
     envVars:
