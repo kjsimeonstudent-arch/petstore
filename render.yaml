@@ -50,7 +50,7 @@ services:
       - key: VITE_API_BASE_URL
         fromService:
           type: web
-          name: petstore-api
+          name: petstore-backend
           envVarKey: RENDER_EXTERNAL_URL
 
 databases:
