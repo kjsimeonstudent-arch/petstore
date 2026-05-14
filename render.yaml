@@ -33,7 +33,7 @@ services:
       - key: CORS_ALLOWED_ORIGINS
         fromService:
           type: web
-          name: petstore-web
+          name: petstore-frontend
           envVarKey: RENDER_EXTERNAL_URL
 
   - type: web
