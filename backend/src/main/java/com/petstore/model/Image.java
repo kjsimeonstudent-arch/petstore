@@ -3,6 +3,7 @@ package com.petstore.model;
 import jakarta.persistence.*;
 import lombok.*;
 import java.util.UUID;
+import java.util.Date;
 
 @Entity
 @Table(name = "pet_images")
