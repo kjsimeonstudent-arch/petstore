@@ -1,5 +1,22 @@
 services:
   - type: web
+    name: petstore-frontend
+    env: static
+    rootDir: frontend
+    buildCommand: cd frontend && npm install && npm run build
+    staticPublishPath: frontend/dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      - key: VITE_API_BASE_URL
+        fromService:
+          type: web
+          name: petstore-backend
+          envVarKey: RENDER_EXTERNAL_URL
+
+  - type: web
     name: petstore-backend
     plan: free
     env: docker
@@ -34,23 +51,6 @@ services:
         fromService:
           type: web
           name: petstore-frontend
-          envVarKey: RENDER_EXTERNAL_URL
-
-  - type: web
-    name: petstore-frontend
-    env: static
-    rootDir: frontend
-    buildCommand: cd frontend && npm install && npm run build
-    staticPublishPath: frontend/dist
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html
-    envVars:
-      - key: VITE_API_BASE_URL
-        fromService:
-          type: web
-          name: petstore-backend
           envVarKey: RENDER_EXTERNAL_URL
 
 databases:

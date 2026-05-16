@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/petstore}
+    url: "${SPRING_DATASOURCE_URL:jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:petstore}?sslmode=${DB_SSL_MODE:require}}"
     username: ${SPRING_DATASOURCE_USERNAME:petstore}
     password: ${SPRING_DATASOURCE_PASSWORD:petstore}
     driver-class-name: org.postgresql.Driver
